@@ -1,6 +1,7 @@
 # Absolute zero in Celsius
 ABSOLUTE_ZERO_C = -273.15
 
+
 def celsius_to_fahrenheit(c: float) -> float:
     """Convert Celsius to Fahrenheit.
     Formula: (c * 9/5) + 32
@@ -9,6 +10,7 @@ def celsius_to_fahrenheit(c: float) -> float:
     # TODO: implement
     return (c * 9/5) + 32
 
+
 def fahrenheit_to_celsius(f: float) -> float:
     """Convert Fahrenheit to Celsius.
     Formula: (f - 32) * 5/9
@@ -16,6 +18,7 @@ def fahrenheit_to_celsius(f: float) -> float:
     """
     # TODO: implement
     return (f - 32) * 5/9
+
 
 def celsius_to_kelvin(c: float) -> float:
     """Convert Celsius to Kelvin.
@@ -28,6 +31,7 @@ def celsius_to_kelvin(c: float) -> float:
         raise ValueError(f"Temperature {c}°C is below absolute zero")
     return c + 273.15
 
+
 def kelvin_to_celsius(k: float) -> float:
     """Convert Kelvin to Celsius.
     Formula: k - 273.15
@@ -38,6 +42,7 @@ def kelvin_to_celsius(k: float) -> float:
     if k < 0:
         raise ValueError(f"Kelvin cannot be negative: {k}")
     return k - 273.15
+
 
 def convert(value: float, from_unit: str, to_unit: str) -> float:
     """Convert a temperature between any supported units.
@@ -52,7 +57,7 @@ def convert(value: float, from_unit: str, to_unit: str) -> float:
     """
     # Normalize to uppercase so 'c' and 'C' both work
     from_unit = from_unit.upper()
-    to_unit   = to_unit.upper()
+    to_unit = to_unit.upper()
 
     # If same unit, return as-is
     if from_unit == to_unit:
@@ -62,7 +67,7 @@ def convert(value: float, from_unit: str, to_unit: str) -> float:
     # Hint: convert via Celsius as the intermediate unit.
     # C → F, C → K, F → C, F → K (via C), K → C, K → F (via C)
     # Raise ValueError for unknown units.
-    
+
     # First: convert input to Celsius
     if from_unit == "C":
         celsius = float(value)
